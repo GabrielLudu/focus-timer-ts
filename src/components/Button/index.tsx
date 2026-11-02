@@ -4,11 +4,12 @@ interface Props {
   children?: React.ReactNode;
   type?: "button" | "submit" | "reset" | undefined;
   onClick?: () => void;
+  disabled?: boolean;
 }
 
-const Button = ({ children, type = "button", onClick }: Props) => {
+const Button = ({ children, type = "button", onClick, disabled }: Props) => {
   return (
-    <button onClick={onClick} type={type} className={style.botao}>
+    <button onClick={onClick} type={type} disabled={disabled} className={style.botao}>
       {children}
     </button>
   );

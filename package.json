@@ -1,6 +1,6 @@
 {
-  "name": "alura-studies",
-  "version": "0.1.0",
+  "name": "focus-timer-ts",
+  "version": "1.0.0",
   "private": true,
   "dependencies": {
     "@testing-library/dom": "^10.4.0",

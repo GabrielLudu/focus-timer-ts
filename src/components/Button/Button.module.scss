@@ -13,6 +13,14 @@
     background-color: #7ca6b7;
     box-shadow: 2px 2px 4px #0000009f inset;
   }
+
+  &:disabled {
+    background-color: #4a5d65;
+    color: #8f9ba0;
+    cursor: not-allowed;
+    box-shadow: none;
+    opacity: 0.6;
+  }
 }
 
 @media screen and (min-width: 1280px) {

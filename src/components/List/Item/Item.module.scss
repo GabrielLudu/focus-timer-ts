@@ -16,6 +16,26 @@
     color: #d0d0d0;
   }
 
+  .botaoDeletar {
+    position: absolute;
+    top: 8px;
+    right: 8px;
+    background: transparent;
+    border: none;
+    color: #a0a0a0;
+    font-size: 1.4rem;
+    line-height: 1;
+    cursor: pointer;
+    padding: 2px 6px;
+    border-radius: 4px;
+    transition: all 0.2s;
+
+    &:hover {
+      color: #ff6b6b;
+      background-color: rgba(255, 107, 107, 0.15);
+    }
+  }
+
   @media screen and (min-width: 1280px) {
     font-size: 1.8rem;
   }

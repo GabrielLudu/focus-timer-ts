@@ -12,19 +12,28 @@ interface Props {
 
 const Stopwatch = ({ selecionado, finalizarTarefa }: Props) => {
   const [tempo, setTempo] = useState<number>();
+  const [emExecucao, setEmExecucao] = useState(false);
 
   useEffect(() => {
     if (selecionado?.tempo) {
       setTempo(tempoParaSegundos(selecionado.tempo));
+      setEmExecucao(false);
     }
   }, [selecionado]);
 
   function regressiva(contador: number = 0) {
+    if (contador <= 0) {
+      setEmExecucao(false);
+      finalizarTarefa();
+      return;
+    }
+    setEmExecucao(true);
     setTimeout(() => {
       if (contador > 0) {
         setTempo(contador - 1);
         return regressiva(contador - 1);
       }
+      setEmExecucao(false);
       finalizarTarefa();
     }, 1000);
   }
@@ -36,11 +45,12 @@ const Stopwatch = ({ selecionado, finalizarTarefa }: Props) => {
         <Clock tempo={tempo} />
       </div>
       <Button
+        disabled={emExecucao || !selecionado || tempo === 0}
         onClick={() => {
           regressiva(tempo);
         }}
       >
-        Começar!
+        {emExecucao ? "Focando..." : "Começar!"}
       </Button>
     </div>
   );
